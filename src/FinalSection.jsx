@@ -157,7 +157,7 @@ export default function FinalSection() {
           <div className="contact-portrait-wrap">
             <img
               src="/images/footer-profile.png"
-              alt="Jalbir Kanchan"
+              alt="Sujal V Kanchan"
               className="contact-portrait"
             />
           </div>

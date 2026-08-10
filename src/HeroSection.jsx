@@ -19,7 +19,7 @@ export default function HeroSection() {
       {/* Hero Profile PNG (z-index: 2 — in front of PORTFOLIO title, behind UI content) */}
       <img
         src="/images/profile-placeholder.png"
-        alt="Jalbir Kanchan"
+        alt="Sujal V Kanchan"
         aria-hidden="true"
         className="hero-profile-image"
       />
@@ -39,7 +39,7 @@ export default function HeroSection() {
           </button>
 
           <div className="signature">
-            Jalbir Kanchan
+            Sujal V Kanchan
           </div>
         </div>
 
