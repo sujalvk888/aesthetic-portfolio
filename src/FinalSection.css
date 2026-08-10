@@ -422,21 +422,218 @@
   filter: drop-shadow(-10px 15px 30px rgba(0, 0, 0, 0.75));
 }
 
-/* ── Mobile ──────────────────────────────────────────────────── */
-@media (max-width: 900px) {
-  .highlights-grid    { grid-template-columns: 1fr; }
-  .highlight-card     { border-right: none; border-bottom: var(--border); }
-  .highlight-card:last-child { border-bottom: none; }
-  .contact-block      { grid-template-columns: 1fr; }
-  .contact-block::before,
-  .contact-block::after { display: none; }
-  .contact-col        { border-right: none; border-bottom: var(--border); padding: 32px 24px; }
-  .contact-col:last-child { border-bottom: none; }
-  .contact-col-4      { padding: 32px 24px; align-items: center; justify-content: center; }
-  .contact-portrait-wrap { margin-bottom: 0; }
+/* ─── Tablet (≤ 1024px) ────────────────────────────────────────── */
+@media (max-width: 1024px) {
+  /* Highlights: 2 column at tablet */
+  .highlights-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .highlight-card:nth-child(2) {
+    border-right: none;
+  }
+
+  .highlight-card:nth-child(3) {
+    grid-column: 1 / -1;
+    border-right: none;
+    border-top: var(--border);
+  }
+
+  /* Contact block: 2-col layout */
+  .contact-block {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .contact-block::before {
+    display: none;
+  }
+
+  .contact-col-1 {
+    margin-top: 0;
+    padding-top: 28px;
+    border-bottom: var(--border);
+  }
+
+  .contact-col-2 {
+    margin-top: 0;
+    padding-top: 28px;
+    border-bottom: var(--border);
+  }
+
+  .contact-col-3 {
+    border-right: var(--border);
+  }
+
+  .contact-signature {
+    font-size: 64px;
+  }
+
+  .contact-heading-large {
+    font-size: 26px;
+  }
+
+  .contact-col-4 {
+    padding: 20px 24px;
+    align-items: flex-end;
+    justify-content: flex-end;
+  }
+
+  .contact-portrait-wrap {
+    max-width: 170px;
+  }
+
   .footer-flower-overlay {
-    width: 280px;
+    width: 220px;
+    bottom: -100px;
+    right: -100px;
+  }
+}
+
+/* ─── Mobile (≤ 768px) ────────────────────────────────────────── */
+@media (max-width: 768px) {
+  /* Highlights: single column */
+  .highlights-header {
+    padding: 18px 20px;
+  }
+
+  .highlights-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .highlight-card {
+    border-right: none;
+    border-bottom: var(--border);
+    padding: 28px 24px 36px;
+  }
+
+  .highlight-card:last-child {
+    border-bottom: none;
+  }
+
+  /* Scale down career highlight numbers */
+  .section-number {
+    font-size: 26px;
+  }
+
+  /* Flower on highlight card: reposition closer */
+  .highlight-flower {
+    width: 80px;
+    height: 80px;
+    right: -28px;
+    top: 10px;
+  }
+
+  .highlight-title {
+    font-size: 18px;
+  }
+
+  .highlight-desc {
+    font-size: 13px;
+  }
+
+  /* Contact block: fully stacked */
+  .contact-block {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-block::before,
+  .contact-block::after {
+    display: none;
+  }
+
+  .contact-col {
+    border-right: none;
+    border-bottom: var(--border);
+    padding: 28px 20px;
+  }
+
+  .contact-col:last-child {
+    border-bottom: none;
+  }
+
+  .contact-col-1 {
+    padding-top: 24px;
+    margin-top: 0;
+  }
+
+  .contact-col-2 {
+    padding-top: 24px;
+    margin-top: 0;
+  }
+
+  /* Scale down large text */
+  .contact-heading-large {
+    font-size: 24px;
+  }
+
+  .contact-signature {
+    font-size: 56px;
+    margin-top: 6px;
+  }
+
+  .contact-subheading {
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    margin-top: 0;
+    margin-bottom: 12px;
+  }
+
+  .contact-text {
+    font-size: 13px;
+    margin: 10px 0 28px 0;
+  }
+
+  /* Contact column 4 (portrait): center the image */
+  .contact-col-4 {
+    padding: 28px 20px;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .contact-portrait-wrap {
+    max-width: 160px;
+    width: 55%;
+    margin-bottom: 0;
+  }
+
+  /* Footer flower: scale down and keep partially visible */
+  .footer-flower-overlay {
+    width: 160px;
+    bottom: -50px;
+    right: -50px;
+  }
+}
+
+/* ─── Small Mobile (≤ 480px) ─────────────────────────────────── */
+@media (max-width: 480px) {
+  .contact-col {
+    padding: 24px 16px;
+  }
+
+  .contact-heading-large {
+    font-size: 20px;
+  }
+
+  .contact-signature {
+    font-size: 44px;
+  }
+
+  .highlight-card {
+    padding: 24px 18px 30px;
+  }
+
+  .highlight-title {
+    font-size: 16px;
+  }
+
+  .contact-portrait-wrap {
+    width: 50%;
+    max-width: 140px;
+  }
+
+  .footer-flower-overlay {
+    width: 130px;
     bottom: -40px;
-    right: -80px;
+    right: -40px;
   }
 }

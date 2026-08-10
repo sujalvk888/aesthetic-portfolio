@@ -466,13 +466,244 @@
   transform: translateY(-30px);
 }
 
-/* ── Mobile ──────────────────────────────────────────────────── */
-@media (max-width: 900px) {
-  .projects-grid      { grid-template-columns: 1fr; }
-  .project-card       { border-right: none; border-bottom: var(--border); }
-  .bottom-row         { grid-template-columns: 1fr; }
-  .process-block      { border-right: none; border-bottom: var(--border); }
-  .process-body       { flex-direction: column; }
-  .process-flower-col { width: 100%; border-left: none; border-top: var(--border); }
-  .tools-grid         { grid-template-columns: 1fr 1fr; }
+/* ─── Tablet (≤ 1024px) ────────────────────────────────────────── */
+@media (max-width: 1024px) {
+  .work-section {
+    padding: 0 32px 40px;
+  }
+
+  .projects-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .project-card:nth-child(2) {
+    border-right: none;
+  }
+
+  .project-card:nth-child(3) {
+    grid-column: 1 / -1;
+    border-right: none;
+    border-top: var(--border);
+  }
+
+  .bottom-row {
+    grid-template-columns: 1fr;
+  }
+
+  .process-block {
+    border-right: none;
+    border-bottom: var(--border);
+  }
+
+  .process-body {
+    flex-direction: column;
+  }
+
+  .steps-list {
+    flex: 0 0 auto;
+    width: 100%;
+    padding: 12px 28px;
+  }
+
+  .process-flower-col {
+    flex: 0 0 auto;
+    width: 100%;
+    border-left: none;
+    border-top: var(--border);
+    padding: 36px 28px;
+  }
+
+  .process-quote {
+    margin: 24px 0 0 0;
+    font-size: 20px;
+  }
+
+  .process-arc {
+    right: -120px;
+  }
+
+  .process-flower-img {
+    width: 220px;
+  }
+
+  .tools-grid {
+    grid-template-columns: 1fr 1fr;
+    margin-top: 0;
+  }
+
+  .tools-header .section-label {
+    margin-left: 0;
+  }
+
+  /* Background flowers: scale down on tablet */
+  .work-bg-flower-topleft {
+    left: -280px;
+    width: 420px;
+  }
+
+  .work-bg-flower-right {
+    right: -340px;
+    width: 440px;
+  }
+}
+
+/* ─── Mobile (≤ 768px) ────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .work-section {
+    padding: 0 18px 36px;
+  }
+
+  .portfolio-panel {
+    margin-top: 32px;
+  }
+
+  /* Section header: reduce padding and font size */
+  .projects-header {
+    padding: 16px 20px;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .section-label {
+    font-size: 14px;
+    letter-spacing: 0.14em;
+  }
+
+  /* Project cards: single column */
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .project-card {
+    border-right: none;
+    border-bottom: var(--border);
+    padding: 20px 20px 0;
+  }
+
+  .project-card:last-child {
+    border-bottom: none;
+  }
+
+  /* Bottom row: single column */
+  .bottom-row {
+    grid-template-columns: 1fr;
+  }
+
+  .process-block {
+    border-right: none;
+    border-bottom: var(--border);
+  }
+
+  .process-header {
+    padding: 20px 20px 0;
+  }
+
+  .process-body {
+    flex-direction: column;
+  }
+
+  /* Steps take full width */
+  .steps-list {
+    flex: 0 0 auto;
+    width: 100%;
+    padding: 10px 20px;
+  }
+
+  .step-item {
+    gap: 14px;
+    padding: 14px 0;
+  }
+
+  .step-num {
+    min-width: 40px;
+  }
+
+  /* Right col of process (arc + flower + quote): hide arc and scale flower */
+  .process-flower-col {
+    flex: 0 0 auto;
+    width: 100%;
+    border-left: none;
+    border-top: var(--border);
+    padding: 28px 20px 28px;
+    min-height: 220px;
+  }
+
+  .process-arc {
+    display: none; /* arc is too large for mobile, hide it */
+  }
+
+  .process-flower-img {
+    width: 160px;
+    top: 20px;
+    right: 10px;
+  }
+
+  .process-quote {
+    font-size: 18px;
+    margin: 20px 0 0 0;
+    letter-spacing: 0.02em;
+  }
+
+  /* Tools: 2-col grid, tighter */
+  .tools-block {
+    border-top: var(--border);
+  }
+
+  .tools-header {
+    padding: 16px 20px;
+  }
+
+  .tools-header .section-label {
+    margin-left: 0;
+  }
+
+  .tools-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    column-gap: 14px;
+    padding: 16px 20px 20px;
+    margin-top: 0;
+  }
+
+  .tool-card {
+    padding: 14px 14px;
+    gap: 10px;
+  }
+
+  .tool-name {
+    font-size: 10.5px;
+  }
+
+  .tools-footer {
+    padding: 12px 20px;
+    transform: translateY(0);
+  }
+
+  /* Hide large background flowers on mobile */
+  .work-bg-flower-topleft {
+    display: none;
+  }
+
+  .work-bg-flower-right {
+    display: none;
+  }
+}
+
+/* ─── Small Mobile (≤ 480px) ─────────────────────────────────── */
+@media (max-width: 480px) {
+  .work-section {
+    padding: 0 14px 28px;
+  }
+
+  .tools-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .tool-card {
+    padding: 12px 16px;
+  }
+
+  .process-flower-img {
+    width: 120px;
+  }
 }
