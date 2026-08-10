@@ -116,7 +116,7 @@ export default function FinalSection() {
               </div>
               <div className="contact-item-info">
                 <span className="contact-item-label">EMAIL</span>
-                <span className="contact-item-value">srushti@example.com</span>
+                <span className="contact-item-value">sujal.vk888@gmail.com</span>
               </div>
             </div>
 
@@ -126,7 +126,7 @@ export default function FinalSection() {
               </div>
               <div className="contact-item-info">
                 <span className="contact-item-label">LINKEDIN</span>
-                <span className="contact-item-value">linkedin.com/in/username</span>
+                <span className="contact-item-value">linkedin.com/in/sujal-v-kanchan</span>
               </div>
             </div>
 
@@ -136,7 +136,7 @@ export default function FinalSection() {
               </div>
               <div className="contact-item-info">
                 <span className="contact-item-label">GITHUB</span>
-                <span className="contact-item-value">github.com/username</span>
+                <span className="contact-item-value">github.com/sujalvk888</span>
               </div>
             </div>
 
@@ -157,7 +157,7 @@ export default function FinalSection() {
           <div className="contact-portrait-wrap">
             <img
               src="/images/footer-profile.png"
-              alt="Srushti G V"
+              alt="Jalbir Kanchan"
               className="contact-portrait"
             />
           </div>
