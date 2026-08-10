@@ -80,6 +80,7 @@
   line-height: 0.78;
   color: var(--khaki-beige);
   margin: 0;
+  margin-top: -32px; /* desktop-only offset moved from inline style */
   letter-spacing: -0.045em;
   transform: scale(0.85, 1.95);
   transform-origin: center center;
@@ -89,12 +90,13 @@
   text-align: center;
 }
 
-/* ─── Lower Grid ─────────────────────────────────────────────── */
+/* ─── Lower Grid ────────────────────────────────────────────── */
 .hero-body-grid {
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
   margin-top: 20px;
+  margin-bottom: -22px; /* desktop offset moved from inline style */
   z-index: 3;
   position: relative;
 }
@@ -141,7 +143,7 @@
   background: transparent;
   cursor: pointer;
   transition: all 0.3s ease;
-  margin: 0 0 30px 0;
+  margin: 5px 0 32px 0; /* desktop margins moved from inline style */
 }
 
 .cta-button:hover {
@@ -159,14 +161,15 @@
   margin: 0;
 }
 
-/* ─── Right Column ────────────────────────────────────────────── */
+/* ─── Right Column ──────────────────────────────────────────── */
 .right-col {
   /* Flexible width; will naturally hug the right padding edge */
   max-width: 320px;
   text-align: left;
   position: relative;
-  right: -35px;
-  top: 12px;
+  right: -35px; /* desktop offset moved from inline style */
+  top: -42px;   /* desktop offset moved from inline style */
+  left: -75px;  /* desktop offset moved from inline style */
 }
 
 .bio-text {
@@ -243,9 +246,24 @@
     opacity: 0.9;
   }
 
+  /* Reset desktop-only offsets for right-col on tablet */
   .right-col {
     max-width: 260px;
     right: 0;
+    top: 0;
+    left: 0;
+  }
+
+  /* Reset hero title desktop margin */
+  .hero-title {
+    font-size: clamp(90px, 17vw, 200px);
+    margin-top: -24px;
+  }
+
+  .hero-profile-image {
+    right: 18%;
+    height: 78%;
+    opacity: 0.9;
   }
 
   .flower-overlay {
@@ -258,45 +276,51 @@
 /* ─── Mobile (≤ 768px) ────────────────────────────────────────── */
 @media (max-width: 768px) {
   .hero-container {
-    padding: 24px 20px 40px;
+    padding: 22px 20px 36px;
     min-height: 100svh;
+    justify-content: flex-start;
   }
 
-  /* Header: stack name and availability label vertically */
+  /* Header: keep side-by-side but reduce size */
   .top-header {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 6px;
-    margin-bottom: 20px;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0;
+    margin-bottom: 12px;
+    font-size: 9px;
+    letter-spacing: 0.14em;
   }
 
-  /* Title: shrink but still dramatic */
+  /* Title: shrink proportionally but keep the dramatic compressed look */
   .hero-title-wrap {
-    margin: 16px 0 32px;
+    margin: 8px 0 24px;
   }
   .hero-title {
-    font-size: clamp(72px, 22vw, 120px);
+    font-size: clamp(68px, 20vw, 108px);
+    margin-top: -16px; /* much smaller offset on mobile */
     width: 100%;
   }
 
-  /* Profile image: push to center-right, low opacity so text is readable */
+  /* Profile image: ghost behind content on right side */
   .hero-profile-image {
-    top: 48%;
-    right: -2%;
-    height: 55%;
-    opacity: 0.35;
-    max-width: 260px;
+    top: 46%;
+    right: 0%;
+    height: 52%;
+    opacity: 0.3;
+    max-width: 240px;
   }
 
   /* Body grid: single column, naturally stacked */
   .hero-body-grid {
     flex-direction: column;
     align-items: flex-start;
-    gap: 32px;
+    gap: 28px;
     margin-top: 0;
+    margin-bottom: 0; /* reset desktop -22px offset */
   }
 
-  /* Left column: fill full width, remove fine-tuned offsets meant for desktop */
+  /* Left column: full width, all desktop offsets reset */
   .left-col {
     max-width: 100%;
     left: 0;
@@ -304,38 +328,46 @@
   }
 
   .tagline {
-    font-size: 16px;
+    font-size: 15px;
     letter-spacing: 0.06em;
     top: 0;
-    margin-bottom: 24px;
+    margin-bottom: 20px;
   }
 
   .cta-button {
-    margin-bottom: 20px;
+    margin: 0 0 20px 0; /* reset the 5px top margin from desktop */
+    padding: 9px 20px;
   }
 
   .signature {
     font-size: 26px;
   }
 
-  /* Right column: fill full width, remove desktop-only negative offsets */
+  /* Right column: full width, ALL desktop-only offsets reset to zero */
   .right-col {
     max-width: 100%;
     right: 0;
-    top: 0;
+    left: 0;  /* reset desktop left: -75px */
+    top: 0;   /* reset desktop top: -42px  */
   }
 
   .bio-text {
-    font-size: 13.5px;
-    margin-bottom: 20px;
+    font-size: 13px;
+    line-height: 1.7;
+    margin-bottom: 16px;
+  }
+
+  .location-block {
+    font-size: 10px;
+    gap: 10px;
   }
 
   /* Flower: tuck almost entirely off-screen */
   .flower-overlay {
-    width: 240px;
+    width: 200px;
     bottom: -20px;
-    right: -180px;
-    opacity: 0.55;
+    right: -150px;
+    opacity: 0.5;
   }
 }
 

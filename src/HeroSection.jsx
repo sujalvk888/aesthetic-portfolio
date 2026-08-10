@@ -13,7 +13,7 @@ export default function HeroSection() {
 
       {/* 2. Hero Title */}
       <div className="hero-title-wrap">
-        <h1 className="hero-title" style={{ marginTop: '-32px' }}>PORTFOLIO</h1>
+        <h1 className="hero-title">PORTFOLIO</h1>
       </div>
 
       {/* Hero Profile PNG (z-index: 2 — in front of PORTFOLIO title, behind UI content) */}
@@ -25,7 +25,7 @@ export default function HeroSection() {
       />
 
       {/* 3. Content Body Grid */}
-      <div className="hero-body-grid" style={{ bottom: '-22px' }}>
+      <div className="hero-body-grid">
         {/* Left Column */}
         <div className="left-col">
           <p className="tagline">
@@ -34,7 +34,7 @@ export default function HeroSection() {
             INSPIRE &amp; CONNECT
           </p>
 
-          <button className="cta-button" type="button" style={{ marginBottom: '32px', marginTop: '5px' }}>
+          <button className="cta-button" type="button">
             Available for projects <span style={{ fontSize: '18px' }}>✦</span>
           </button>
 
@@ -44,7 +44,7 @@ export default function HeroSection() {
         </div>
 
         {/* Right Column */}
-        <div className="right-col" style={{ top: '-42px', left: '-75px' }}>
+        <div className="right-col">
           <p className="bio-text">
             I'm a UI/UX and Web Designer<br />
             crafting elegant, functional<br />

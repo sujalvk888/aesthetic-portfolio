@@ -618,30 +618,40 @@
     min-width: 40px;
   }
 
-  /* Right col of process (arc + flower + quote): hide arc and scale flower */
+  /* Right col of process (arc + flower + quote):
+     On mobile: hide arc, show flower top-right, quote sits below */
   .process-flower-col {
     flex: 0 0 auto;
     width: 100%;
     border-left: none;
     border-top: var(--border);
-    padding: 28px 20px 28px;
-    min-height: 220px;
+    padding: 24px 20px 32px;
+    min-height: 260px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
   }
 
   .process-arc {
-    display: none; /* arc is too large for mobile, hide it */
+    display: none; /* too large for mobile */
   }
 
   .process-flower-img {
-    width: 160px;
-    top: 20px;
-    right: 10px;
+    width: 150px;
+    top: 16px;
+    right: 12px;
+    position: absolute;
   }
 
   .process-quote {
-    font-size: 18px;
-    margin: 20px 0 0 0;
-    letter-spacing: 0.02em;
+    font-size: 19px;
+    line-height: 130%;
+    margin: 0;          /* fully reset the desktop margin: 160px 0 0 67px */
+    letter-spacing: 0.03em;
+    position: relative;
+    z-index: 3;
+    max-width: 200px;   /* prevent text running under the flower */
   }
 
   /* Tools: 2-col grid, tighter */
