@@ -1,0 +1,478 @@
+/* ══════════════════════════════════════════════════════════════
+   WorkSection.css
+   Pixel-faithful recreation of the Selected Projects / My Process
+   / Tools I Use section from the reference design.
+   ══════════════════════════════════════════════════════════════ */
+
+/* ── Variables (reuse hero tokens) ──────────────────────────── */
+:root {
+  --border-col: rgba(186, 167, 150, 0.18);
+  --border:     1px solid var(--border-col);
+  --bg:         #180B0D;
+  --bg-card:    #180B0D;
+  --accent:     #793F49;
+  --khaki:      #BAA796;
+  --offwhite:   #E5D8CC;
+  --muted:      #8a7a72;
+  --tag-bg:     rgba(186, 167, 150, 0.08);
+}
+
+/* ── Section shell: continuous page-level background layer ──── */
+.work-section {
+  position: relative;
+  width: 100vw;
+  /* Uses the exact same solid background color as the Hero section (#180B0D) */
+  background: #180B0D;
+  font-family: 'Inter', sans-serif;
+  /* 0px top padding removes any visual separation or empty strip above the panel */
+  padding: 0 55px 48px;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+/* ── Layer 1 — Decorative Background ────────────────────────── */
+/* Independent background layer. Absolute positioned, z-index 0. */
+/* Does NOT participate in or move with the Portfolio Panel.   */
+.work-bg-layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ── Background decorative flower (left) — z-index 0, behind panel ─ */
+.work-bg-flower {
+  position: absolute;
+  left: -200px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 540px;
+  height: 540px;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.55;
+}
+.work-bg-flower-placeholder {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: radial-gradient(circle, #4a1a22 0%, #1e0a0e 60%, transparent 100%);
+}
+
+/* ── Top-left decorative flower (flower2.png) — anchored to top-left corner, ~25% visible ── */
+.work-bg-flower-topleft {
+  position: absolute;
+  top: -30px;
+  left: -380px;
+  width: 540px;
+  height: auto;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.95;
+  filter: drop-shadow(10px 10px 30px rgba(13, 13, 13, 0.9));
+}
+
+/* ── Continuous decorative flower (right) — continues downward from Hero section ─ */
+.work-bg-flower-right {
+  position: absolute;
+  top: -429px;
+  right: -450px;
+  width: 580px;
+  height: auto;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.95;
+  filter: drop-shadow(-10px 10px 30px rgba(13, 13, 13, 0.9));
+}
+
+/* ── Layer 2 — Portfolio Panel ──────────────────────────────── */
+/* Independent container for Selected Projects, My Process, and  */
+/* Tools I Use. Repositionable via margin without moving Layer 1.*/
+.portfolio-panel {
+  position: relative;
+  z-index: 1;
+  background: rgba(9, 5, 6, 0.93);
+  background-color: rgba(9, 5, 6, 0.93);
+  background-position-x: 0%;
+  background-position-y: 0%;
+  background-repeat: repeat;
+  background-attachment: scroll;
+  background-image: none;
+  background-size: auto;
+  background-origin: padding-box;
+  background-clip: border-box;
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  border: var(--border);
+  border-bottom: none;  /* section bleeds to bottom of viewport */
+  width: 100%;
+  box-sizing: border-box;
+  margin-top: 50px; /* ~50px breathing space between end of Hero section and beginning of Portfolio Panel */
+}
+
+/* ══════════════════════════════════════════════════════════════
+   ROW 1 — SELECTED PROJECTS
+   ══════════════════════════════════════════════════════════════ */
+.projects-block {
+  position: relative;
+  border-bottom: var(--border);
+}
+
+/* Section header bar */
+.projects-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 32px;
+  border-bottom: var(--border);
+}
+
+.section-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--offwhite);
+}
+
+.star {
+  color: var(--khaki);
+  margin-left: 6px;
+}
+
+.view-all {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 300;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+  cursor: pointer;
+  transition: color 0.2s;
+}
+.view-all:hover { color: var(--offwhite); }
+
+/* Project cards grid — 3 equal columns with vertical dividers */
+.projects-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.project-card {
+  display: flex;
+  flex-direction: column;
+  padding: 24px 28px 0;
+  border-right: var(--border);
+}
+.project-card:last-child { border-right: none; }
+
+/* Card meta row */
+.card-meta {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  margin-bottom: 18px;
+}
+.card-num {
+  font-family: 'Inter', sans-serif;
+  font-size: 20px;
+  font-weight: 300;
+  color: var(--muted);
+  letter-spacing: 0.05em;
+  line-height: 1.3;
+  min-width: 22px;
+}
+.card-name {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--offwhite);
+  margin-bottom: 3px;
+}
+.card-category {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 300;
+  color: var(--muted);
+  letter-spacing: 0.04em;
+}
+
+/* Preview image placeholder */
+.card-image-wrap {
+  flex: 1;
+  margin-bottom: 0;
+}
+.card-image-placeholder {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  background: linear-gradient(135deg, #1e0f12 0%, #2e1418 50%, #1a0c0f 100%);
+  border: var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+.card-image-placeholder::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 30% 40%, rgba(121,63,73,0.25) 0%, transparent 70%);
+}
+.placeholder-label {
+  font-size: 10px;
+  font-weight: 300;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--muted);
+  opacity: 0.6;
+  position: relative;
+  z-index: 1;
+}
+
+/* Tags row */
+.card-tags {
+  display: flex;
+  gap: 8px;
+  padding: 16px 0;
+  flex-wrap: wrap;
+  border-top: none;
+  margin-top: 16px;
+}
+.tag {
+  font-size: 9px;
+  font-weight: 400;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--offwhite);
+  border: var(--border);
+  padding: 6px 12px;
+  border-radius: 2px;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   ROW 2 — BOTTOM (Process + Tools)
+   ══════════════════════════════════════════════════════════════ */
+.bottom-row {
+  display: grid;
+  grid-template-columns: 60fr 40fr;
+  position: relative;
+  border-bottom: var(--border);
+}
+
+/* ── My Process (left 60%) ───────────────────────────────────── */
+.process-block {
+  border-right: var(--border);
+  display: flex;
+  flex-direction: column;
+}
+.process-header {
+  padding: 20px 25px 0;
+  border-bottom: none;
+}
+.process-header .section-label {
+  font-size: 18px;
+  font-weight: 500;
+}
+.process-body {
+  display: flex;
+  flex: 1;
+  padding: 0;
+  margin-top: 2px;
+}
+
+/* Steps list */
+.steps-list {
+  flex: 0 0 40%;
+  width: 40%;
+  padding: 7px 25px 2px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+.step-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+  padding: 18px 0;
+  border-bottom: none;
+}
+.step-item:last-child { border-bottom: none; }
+
+.step-num {
+  min-width: 52px;
+}
+.step-content {}
+.step-title {
+  font-family: 'Inter', sans-serif;
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--offwhite);
+  margin-bottom: 5px;
+}
+.step-desc {
+  font-family: 'Inter', sans-serif;
+  font-size: 11.5px;
+  font-weight: 300;
+  color: var(--muted);
+  line-height: 1.7;
+  letter-spacing: 0.02em;
+  white-space: pre-line;
+}
+
+/* Right column inside process (Arc + Flower + Quote) - ~60% width */
+.process-flower-col {
+  flex: 0 0 60%;
+  width: 60%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 50px 48px 50px 56px; /* increased internal padding by ~25px for breathing space */
+  border-left: none; /* circular arc acts as the visual separator instead */
+  overflow: hidden; /* clips the decorative arc and flower at the panel edges */
+}
+
+/* ── Large Decorative Circular Arc (z-index 1) ───────────────── */
+.process-arc {
+  position: absolute;
+  top: -9px;
+  right: -226px; /* circle origin moved far right so only the LEFT boundary curve appears */
+  left: auto;
+  width: 590px;
+  height: 590px;
+  border-radius: 50%;
+  border: 1.8px solid var(--border-col);
+  background: transparent;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* ── Floating Flower (flower3.png) (z-index 2) ───────────────── */
+.process-flower-img {
+  position: absolute;
+  top: 45px;
+  right: 0px;
+  width: 280px;
+  height: auto;
+  pointer-events: none;
+  z-index: 2;
+  filter: drop-shadow(-10px 15px 30px rgba(13, 13, 13, 0.8));
+}
+
+/* ── Four-Line Quote (z-index 3) ─────────────────────────────── */
+.process-quote {
+  position: relative;
+  z-index: 3;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px;
+  font-weight: 300;
+  font-style: normal;
+  color: rgba(229, 216, 204, 0.85);
+  text-align: left;
+  line-height: 132%;
+  letter-spacing: 0.038em;
+  margin: 160px 0 0 67px; /* positions below flower, aligned slightly left of flower center */
+}
+
+/* ── Tools I Use (right 40%) ─────────────────────────────────── */
+.tools-block {
+  display: flex;
+  flex-direction: column;
+}
+.tools-header {
+  padding: 20px 32px;
+  border-bottom: none;
+}
+.tools-header .section-label {
+  margin-left: -11px;
+  margin-top: 0px;
+  display: inline-block;
+}
+
+.tools-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  row-gap: 18px;
+  column-gap: 25px;
+  padding: 24px 23px;
+  padding-top: 24px;
+  padding-right: 23px;
+  padding-bottom: 24px;
+  padding-left: 23px;
+  flex: 1;
+  align-content: center;
+  margin-top: -44px;
+}
+.tool-card {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 18px 20px;
+  background: var(--bg-card);
+  border: var(--border);
+  border-radius: 4px;
+  cursor: default;
+  transition: background 0.2s, border-color 0.2s;
+}
+.tool-card:hover {
+  background: rgba(186, 167, 150, 0.05);
+  border-color: rgba(186, 167, 150, 0.35);
+}
+
+.tool-icon-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+  border-radius: 4px;
+  background: rgba(186, 167, 150, 0.05); /* simple placeholder box until PNG is replaced */
+  overflow: hidden;
+}
+.tool-icon {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+  display: block;
+  border: none;
+  flex-shrink: 0;
+}
+.tool-name {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--offwhite);
+}
+
+.tools-footer {
+  padding: 16px 28px;
+  font-family: 'Inter', sans-serif;
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--muted);
+  border-top: none;
+  transform: translateY(-30px);
+}
+
+/* ── Mobile ──────────────────────────────────────────────────── */
+@media (max-width: 900px) {
+  .projects-grid      { grid-template-columns: 1fr; }
+  .project-card       { border-right: none; border-bottom: var(--border); }
+  .bottom-row         { grid-template-columns: 1fr; }
+  .process-block      { border-right: none; border-bottom: var(--border); }
+  .process-body       { flex-direction: column; }
+  .process-flower-col { width: 100%; border-left: none; border-top: var(--border); }
+  .tools-grid         { grid-template-columns: 1fr 1fr; }
+}

@@ -1,0 +1,267 @@
+/* Custom Font Declaration: Using Ronthel Brush DEMO.otf in public/fonts */
+@font-face {
+  font-family: 'Ronthel Brush';
+  src: url('/fonts/Ronthel Brush DEMO.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* CSS Variables */
+:root {
+  --coffee-bean: #180B0D;
+  --onyx: #0D0D0D;
+  --khaki-beige: #BAA796;
+  --night-bordeaux: #34161E;
+  --accent-pink: #793F49;
+  --text-offwhite: #E5D8CC;
+  --text-muted: #CBBBB0;
+}
+
+/* Container
+   width: 100vw ensures it always spans the full viewport,
+   never stretched by absolutely-positioned children like .flower-overlay */
+.hero-container {
+  position: relative;
+  width: 100vw;
+  min-height: 100vh;
+  background: radial-gradient(
+    circle at 50% 35%,
+    var(--night-bordeaux) 0%,
+    var(--coffee-bean) 55%,
+    var(--onyx) 100%
+  );
+  color: var(--text-offwhite);
+  padding: 30px 25px;
+  /* overflow hidden clips the flower that extends beyond the right edge
+     but must NOT clip anything on left; set to clip-path or keep hidden */
+  overflow: hidden;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* ─── Header ─────────────────────────────────────────────────── */
+.top-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: 'Inter', sans-serif;
+  font-weight: 300;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  z-index: 3;
+  position: relative;
+  /* No manual left/right offsets — natural padding from .hero-container
+     keeps both labels symmetrically inset from the viewport edges */
+}
+
+/* ─── Display Title ───────────────────────────────────────────── */
+.hero-title-wrap {
+  width: 100%;
+  text-align: center;
+  /* vertical breathing room above and below the large heading */
+  margin: 35px 0 55px 0;
+  z-index: 1;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* No horizontal offset — the container is already 100vw-wide */
+}
+
+.hero-title {
+  font-family: 'Playfair Display', serif;
+  font-weight: 600;
+  font-size: clamp(110px, 21.2vw, 360px);
+  line-height: 0.78;
+  color: var(--khaki-beige);
+  margin: 0;
+  letter-spacing: -0.045em;
+  transform: scale(0.85, 1.95);
+  transform-origin: center center;
+  -webkit-user-select: none;
+  user-select: none;
+  width: 130%;
+  text-align: center;
+}
+
+/* ─── Lower Grid ─────────────────────────────────────────────── */
+.hero-body-grid {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-top: 20px;
+  z-index: 3;
+  position: relative;
+}
+
+/* ─── Left Column ────────────────────────────────────────────── */
+.left-col {
+  /* Flexible width; will naturally hug the left padding edge */
+  max-width: 420px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  position: relative;
+  left: -2px;
+  top: -5px;
+}
+
+.tagline {
+  font-family: 'Inter', sans-serif;
+  font-weight: 300;
+  font-size: 20px;
+  line-height: 1.45;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-offwhite);
+  margin: 0 0 36px 0;
+  text-align: left;
+  position: relative;
+  top: 25px;
+}
+
+.cta-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  border: 1px solid rgba(186, 167, 150, 0.4);
+  padding: 10px 22px;
+  border-radius: 50px;
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  color: var(--khaki-beige);
+  text-transform: uppercase;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin: 0 0 30px 0;
+}
+
+.cta-button:hover {
+  background: rgba(186, 167, 150, 0.12);
+  border-color: var(--khaki-beige);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(186, 167, 150, 0.15);
+}
+
+.signature {
+  font-family: 'Ronthel Brush', 'Alex Brush', cursive;
+  font-size: 32px;
+  color: var(--accent-pink);
+  line-height: 0.8;
+  margin: 0;
+}
+
+/* ─── Right Column ────────────────────────────────────────────── */
+.right-col {
+  /* Flexible width; will naturally hug the right padding edge */
+  max-width: 320px;
+  text-align: left;
+  position: relative;
+  right: -35px;
+  top: 12px;
+}
+
+.bio-text {
+  font-family: 'Inter', sans-serif;
+  font-weight: 300;
+  font-size: 14.5px;
+  line-height: 1.65;
+  color: var(--text-muted);
+  margin-bottom: 36px;
+  letter-spacing: 0.02em;
+  text-align: left;
+}
+
+.location-block {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: 'Libertinus Serif', 'Times New Roman', serif;
+  font-size: 11px;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+/* ─── Hero Profile Image ──────────────────────────────────────
+   Transparent PNG positioned between PORTFOLIO typography (z-index 1)
+   and UI content (z-index 3). No borders, shadows, or background.   */
+.hero-profile-image {
+  position: absolute;
+  top: 56%;
+  right: 26%;
+  transform: translateY(-48%);
+  height: 85%;
+  width: auto;
+  max-width: 608px;
+  object-fit: contain;
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* ─── Flower Overlay ──────────────────────────────────────────
+   Absolutely positioned, right edge of .hero-container (100vw).
+   80% of the image is outside the viewport; 20% is visible.
+   It plays NO role in the layout of any other element.        */
+.flower-overlay {
+  position: absolute;
+  bottom: -126px;
+  right: -451px;
+  width: 580px;
+  height: auto;
+  pointer-events: none;
+  z-index: 5;
+  opacity: 0.95;
+  filter: drop-shadow(-10px 10px 30px rgba(13, 13, 13, 0.9));
+  transition: transform 0.5s ease-out;
+}
+
+.hero-container:hover .flower-overlay {
+  transform: scale(1.02) rotate(-1deg);
+}
+
+/* ─── Mobile ──────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .hero-container {
+    padding: 28px 24px;
+    min-height: 0;
+  }
+
+  .top-header {
+    margin-bottom: 30px;
+  }
+
+  .hero-title-wrap {
+    margin: 20px 0 40px;
+  }
+
+  .hero-body-grid {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 40px;
+  }
+
+  .right-col {
+    max-width: 100%;
+  }
+
+  .hero-profile-image {
+    right: 5%;
+    height: 65%;
+    opacity: 0.6;
+  }
+
+  .flower-overlay {
+    width: 300px;
+    bottom: -30px;
+    right: -240px;
+  }
+}
+

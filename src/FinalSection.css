@@ -1,0 +1,442 @@
+/* ══════════════════════════════════════════════════════════════
+   FinalSection.css
+   Styles for Career Highlights, Contact Area, and Bottom Footer Strip.
+   ══════════════════════════════════════════════════════════════ */
+
+/* Custom font — Humble Signation (for "Amazing" signature) */
+@font-face {
+  font-family: 'Humble Signation';
+  src: url('/fonts/Humble Signation.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   ROW 3 — CAREER HIGHLIGHTS
+   ══════════════════════════════════════════════════════════════ */
+.highlights-block {
+  border-bottom: var(--border);
+  position: relative;
+}
+
+.highlights-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 32px;
+  border-bottom: var(--border);
+}
+
+.highlights-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+/* ── Card ── */
+.highlight-card {
+  padding: 36px 55px 55px;
+  border-right: var(--border);
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  position: relative;
+}
+.highlight-card:last-child {
+  border-right: none;
+}
+
+/* ── Top row: number + circular ring + icon ── */
+.highlight-top {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  margin-bottom: 28px;
+}
+
+.highlight-num {
+  position: absolute;
+  left: 0;
+  top: 4px;
+}
+
+/* Ring container — positions the ring and icon relative to each other */
+.highlight-ring-wrap {
+  position: relative;
+  width: 90px;
+  height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/* Decorative circular ring (behind icon) */
+.highlight-ring {
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  border-radius: 50%;
+  border: 1.5px solid rgba(186, 167, 150, 0.30);
+  background: transparent;
+  pointer-events: none;
+}
+
+/* Decorative blooming flower — behind icon, above ring */
+.highlight-flower {
+  position: absolute;
+  z-index: 2;
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  top: 16px;
+  right: -42px;
+  pointer-events: none;
+}
+
+/* Icon placeholder — sits on top of ring */
+.highlight-icon-wrap {
+  position: relative;
+  z-index: 3;
+  width: 52px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.highlight-icon {
+  width: 65px;
+  height: 65px;
+  object-fit: contain;
+  display: block;
+  filter: drop-shadow(8px 5px 3px rgb(0, 0, 0));
+}
+
+/* ── Title — two lines, uppercase tracking ── */
+.highlight-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--offwhite);
+  line-height: 1.2;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin: 0 0 3px 0;
+}
+
+/* ── Short horizontal divider line below title ── */
+.highlight-divider {
+  width: 95px;
+  height: 2px;
+  background-color: var(--border-col);
+  margin: 16px 0;
+}
+
+/* ── Description ── */
+.highlight-desc {
+  font-family: 'Inter', sans-serif;
+  font-size: 13.5px;
+  font-weight: 300;
+  color: #bfb2a9;
+  line-height: 1.65;
+  margin: 0 0 24px 0;
+  flex: 1;
+}
+
+/* ── Badge button (single) ── */
+.highlight-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 16px;
+  font-family: 'Inter', sans-serif;
+  font-size: 10.5px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #b55161;
+  background: rgba(186, 167, 150, 0.06);
+  border: 1px solid rgba(186, 167, 150, 0.22);
+  border-radius: 4px;
+  align-self: flex-start;
+}
+
+.badge-star {
+  color: var(--khaki);
+  font-size: 10px;
+  flex-shrink: 0;
+}
+
+/* ── Badge list (IEEE card) — bordered badge/container matching single action badge ── */
+.highlight-badge-list {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 9px 16px;
+  font-family: 'Inter', sans-serif;
+  font-size: 10.5px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #b55161;
+  background: rgba(186, 167, 150, 0.06);
+  border: 1px solid rgba(186, 167, 150, 0.22);
+  border-radius: 4px;
+  align-self: flex-start;
+}
+
+.highlight-badge-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.highlight-badge-item .bullet {
+  color: var(--khaki);
+  font-size: 10px;
+  flex-shrink: 0;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   ROW 4 — BOTTOM INFORMATION AREA / CONTACT
+   ══════════════════════════════════════════════════════════════ */
+.contact-block {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1.2fr 0.8fr;
+  border-bottom: var(--border);
+  position: relative;
+}
+
+/* Draw vertical dividers on the row container so they start and end strictly within .contact-block */
+.contact-block::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 25%;
+  width: 25%;
+  border-left: var(--border);
+  border-right: var(--border);
+  pointer-events: none;
+}
+
+.contact-col {
+  padding: 40px 32px;
+  border-right: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.contact-col-1 {
+  padding-top: 0px;
+  margin-top: -30px;
+}
+
+.contact-col-2 {
+  padding-top: 18px;
+  margin-top: 41px;
+}
+
+.contact-heading-large {
+  font-family: 'Playfair Display', serif;
+  font-size: 32px;
+  font-weight: 600;
+  color: var(--offwhite);
+  line-height: 1.15;
+  letter-spacing: 0.02em;
+  margin: 0 0 16px 0;
+}
+
+/* "Amazing" — custom Humble Signation font only */
+.contact-signature {
+  font-family: 'Humble Signation', cursive;
+  font-size: 84px;
+  color: #ab4253;
+  line-height: 0.9;
+  margin-top: 8px;
+}
+
+.contact-subheading {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--offwhite);
+  margin-top: -42px;
+  margin-bottom: 25px;
+}
+
+.contact-text {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 300;
+  color: #bfb2a9;
+  line-height: 1.6;
+  margin: 15px 0 45px 0;
+}
+
+.contact-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 28px;
+  border-radius: 999px;
+  border: 1px solid rgba(186, 167, 150, 0.4);
+  color: var(--offwhite);
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: fit-content;
+}
+.contact-btn:hover {
+  background: rgba(186, 167, 150, 0.15);
+  border-color: var(--khaki);
+  transform: translateY(-2px);
+}
+
+.contact-list {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+.contact-icon-wrap {
+  width: 38px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.contact-icon {
+  width: 45px;
+  height: 45px;
+  object-fit: contain;
+  display: block;
+}
+
+.contact-item-info {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.contact-item-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  color: var(--muted);
+  text-transform: uppercase;
+}
+
+.contact-item-value {
+  font-family: 'Inter', sans-serif;
+  font-size: 13.5px;
+  font-weight: 400;
+  color: var(--offwhite);
+}
+
+.contact-col-4 {
+  padding: 28px 32px 0 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  position: relative;
+  z-index: 2;
+}
+
+.contact-portrait-wrap {
+  width: 104%;
+  max-width: 210px;
+  aspect-ratio: 3 / 4;
+  border: var(--border);
+  border-radius: 0px;
+  overflow: hidden;
+  background: #180b0d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: -14px;
+  position: relative;
+  z-index: 2;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.45);
+}
+
+.contact-portrait {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   ROW 5 — BOTTOM FOOTER STRIP
+   ══════════════════════════════════════════════════════════════ */
+.portfolio-footer-strip {
+  width: 100%;
+  padding: 24px 32px;
+  text-align: center;
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--offwhite);
+  background: #2D1115;
+  border-bottom: var(--border);
+  position: relative;
+  z-index: 1;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   DECORATIVE FLOWER (TOP LAYER) — BOTTOM-RIGHT CORNER
+   Absolutely positioned relative to .portfolio-panel container.
+   ~60% visible inside screen, ~40% extending beyond right edge.
+   ══════════════════════════════════════════════════════════════ */
+.footer-flower-overlay {
+  position: absolute;
+  bottom: -139px;
+  right: -149px;
+  width: 277px;
+  height: auto;
+  pointer-events: none;
+  z-index: 10;
+  opacity: 0.95;
+  filter: drop-shadow(-10px 15px 30px rgba(0, 0, 0, 0.75));
+}
+
+/* ── Mobile ──────────────────────────────────────────────────── */
+@media (max-width: 900px) {
+  .highlights-grid    { grid-template-columns: 1fr; }
+  .highlight-card     { border-right: none; border-bottom: var(--border); }
+  .highlight-card:last-child { border-bottom: none; }
+  .contact-block      { grid-template-columns: 1fr; }
+  .contact-block::before,
+  .contact-block::after { display: none; }
+  .contact-col        { border-right: none; border-bottom: var(--border); padding: 32px 24px; }
+  .contact-col:last-child { border-bottom: none; }
+  .contact-col-4      { padding: 32px 24px; align-items: center; justify-content: center; }
+  .contact-portrait-wrap { margin-bottom: 0; }
+  .footer-flower-overlay {
+    width: 280px;
+    bottom: -40px;
+    right: -80px;
+  }
+}
