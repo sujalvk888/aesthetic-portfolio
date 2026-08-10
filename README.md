@@ -1,16 +1,12 @@
 <div align="center">
 
-<img src="src/assets/flower.png" width="600" alt="Floral Aesthetic Graphic" />
-
-<br/><br/>
-
 # ✦ SUJAL V KANCHAN ✦ 
 ### UI/UX & Web Designer Portfolio
 
 <br/>
 
 <p align="center">
-  A meticulously crafted digital garden that blends dark-mode elegance with organic, botanical elements, resulting in a premium and layered user experience.
+  A sleek, high-performance portfolio crafted with modern design principles. Engineered for a premium, distraction-free user experience.
 </p>
 
 [![Vercel Deployment](https://img.shields.io/badge/Deployed_on-Vercel-black?style=for-the-badge&logo=vercel)](https://sk-aesthetic-portfolio-nu.vercel.app)
@@ -26,12 +22,12 @@
 
 ## ✧ The Vision
 
-Every pixel of this portfolio is designed to leave a stunning first impression. Moving away from standard templated layouts, this design incorporates:
+Every pixel of this portfolio is designed to leave a strong, professional impression. Moving away from standard templated layouts, this design incorporates:
 
-* **Magazine-Style Layouts:** Custom grid structures that break the conventional blocky constraints of the web.
-* **Layered Visual Depth:** Absolute-positioned floral accents that organically intersect with the interface, creating a sense of 3D depth.
-* **Typographic Harmony:** A sophisticated pairing of **Playfair Display**, **BIZ UDMincho**, and **Inter** for a luxurious reading experience.
-* **Subtle Micro-Interactions:** Smooth gradients and deliberate hover states that make the interface feel alive and highly responsive.
+* **Grid & Structure:** Custom grid layouts that provide a clean, architectural flow to the interface.
+* **Visual Depth:** Absolute-positioned elements that intersect with the foreground to create a dynamic sense of 3D depth and layering.
+* **Typographic Contrast:** A bold and sophisticated pairing of **Playfair Display**, **BIZ UDMincho**, and **Inter** for maximum readability and style.
+* **Micro-Interactions:** Smooth transitions and deliberate hover states that make the interface feel responsive, sharp, and highly engineered.
 
 <br/>
 
@@ -60,7 +56,7 @@ Every pixel of this portfolio is designed to leave a stunning first impression. 
 
 <br/>
 
-## ✧ Local Setup & Installation
+## ✧ Local Setup
 
 Want to explore the codebase or run it locally?
 
@@ -82,7 +78,7 @@ npm run dev
 
 ## ✧ Connect
 
-I am currently open to new projects and exciting collaborations. Let's build something impactful and beautiful together.
+I am currently open to new projects and professional collaborations. Let's build something impactful together.
 
 <div align="center">
   <br/>
@@ -96,8 +92,6 @@ I am currently open to new projects and exciting collaborations. Let's build som
 <br/>
 <br/>
 
-<img src="src/assets/flower4.png" width="80" alt="Floral Icon" />
-<br/><br/>
-<i>Designed & Developed with passion by <b>Sujal V Kanchan</b></i>
+<i>Designed & Developed by <b>Sujal V Kanchan</b></i>
 
 </div>
