@@ -1,8 +1,25 @@
 {
-  "name": "new_portfolio",
+  "name": "aesthetic-portfolio",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
+  "description": "A modern, high-craft frontend web application showcasing editorial layout design and responsive typography.",
   "type": "module",
+  "homepage": "https://sk-aesthetic-portfolio-nu.vercel.app",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sujalvk888/aesthetic-portfolio.git"
+  },
+  "author": "Sujal V Kanchan <sujal.vk888@gmail.com>",
+  "license": "MIT",
+  "keywords": [
+    "react",
+    "vite",
+    "frontend",
+    "portfolio",
+    "ui-ux",
+    "editorial-design",
+    "css3"
+  ],
   "scripts": {
     "dev": "vite",
     "build": "vite build",
